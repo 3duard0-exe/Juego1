@@ -9,6 +9,9 @@ Exercises
 5. Add width parameter.
 """
 
+import turtle
+
+
 from turtle import *
 
 from freegames import vector
@@ -37,8 +40,21 @@ def square(start, end):
 
 
 def circle(start, end):
-    """Draw circle from start to end."""
-    pass  # TODO
+    """Dibuja un círculo con centro en start y radio hasta end."""
+    # Calcula la distancia entre los dos clics usando Pitágoras.
+    radius = ((end.x - start.x) ** 2 + (end.y - start.y) ** 2) ** 0.5
+
+    # Dos clics en el mismo punto no forman un círculo.
+    if radius == 0:
+        return
+
+    up()
+    goto(start.x, start.y - radius)
+    setheading(0)
+    down()
+    begin_fill()
+    turtle.circle(radius)
+    end_fill()
 
 
 def rectangle(start, end):
