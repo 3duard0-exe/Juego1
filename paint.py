@@ -58,8 +58,19 @@ def circle(start, end):
 
 
 def rectangle(start, end):
-    """Draw rectangle from start to end."""
-    pass  # TODO
+    """Dibuja un rectángulo usando dos esquinas opuestas."""
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    # Recorre las cuatro esquinas y cierra el rectángulo.
+    goto(end.x, start.y)
+    goto(end.x, end.y)
+    goto(start.x, end.y)
+    goto(start.x, start.y)
+
+    end_fill()
 
 
 def triangle(start, end):
